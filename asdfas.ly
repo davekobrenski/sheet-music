@@ -1,6 +1,6 @@
 \header {
   title = "Test"
-  composer = "Dave"
+  composer = "Dave K"
 }
 
 \score {
