@@ -4,8 +4,8 @@
 }
 
 \score {
-  \relative c' {
-    c4
+  \relative c'' {
+    c4 d8
   }
 
   \layout {}
