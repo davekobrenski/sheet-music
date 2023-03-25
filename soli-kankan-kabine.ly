@@ -47,9 +47,11 @@
     }
 }
 PartPOneVoiceOne =  \relative a'' {
-    \clef "treble" \time 12/8 \key g \major \stopStaff \override
-    Staff.StaffSymbol.line-count = #5 \startStaff | % 1
-    \tempo 4.=120 a2. r4 c8 ~ c8 [ b8 a8 ] | % 2
+    \clef "treble" 
+    \time 12/8 
+    \key g \major 
+    % \tempo 4.=120 
+    a2. r4 c8 ~ c8 [ b8 a8 ] | % 2
     fis4. r8 e8 [ d8 ] d8 [ d8 d8 ( ] c8 ) [ b8 ~ b8 ] | % 3
     g'4. ~ g8 r8 a8 a4 g8 ~ g8 [ fis8 e8 ~ ] | % 4
     e4 g8 fis4 e8 d8 [ c8 c8 ] c8 c4 \bar "|."
@@ -57,29 +59,29 @@ PartPOneVoiceOne =  \relative a'' {
 
 PartPOneVoiceOneLyricsOne =  \lyricmode {
     \set ignoreMelismata = ##t 
-    Eeeh ka --\skip1 bi -- "nɛ" leeh N -- te mo -- ri -- ya\skip1 saa\skip1
-    Eeeh\skip1 kan -- kan ka --\skip1 bi -- "nɛ" \skip1 den ko te mo --
-    ri -- ya ti -- "ɲɛ"
+    Eeeh ka --\skip1 bi -- "nɛ" 
+    leeh N' -- te mo -- ri -- ya\skip1 saa\skip1
+    Eeeh\skip1 kan -- kan ka --\skip1 bi -- "nɛ" 
+    \skip1 den ko te mo -- ri -- ya ti -- "ɲɛ"
 }
 
 
 % The score definition
 \score {
-    <<
-        
-        \new Staff
-        <<
-            
-            \context Staff << 
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "PartPOneVoiceOne" {  \PartPOneVoiceOne }
-                \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "1." \PartPOneVoiceOneLyricsOne }
-                >>
-            >>
-        
+    \new Staff <<
+        \context Staff << 
+            %\mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+            \context Voice = "PartPOneVoiceOne" {  
+                \PartPOneVoiceOne 
+            }
+            \new Lyrics \lyricsto "PartPOneVoiceOne" {
+                \PartPOneVoiceOneLyricsOne 
+            }
         >>
+    >>
+        
     \layout {}
     % To create MIDI output, uncomment the following line:
     %  \midi {\tempo 4 = 180 }
-    }
+}
 
