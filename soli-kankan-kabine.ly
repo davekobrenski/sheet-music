@@ -72,17 +72,19 @@ lyricsOne = \lyricmode {
 }
 
 % The score definition
-\score {
-    \new Staff <<
-        %\mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-        \context Voice = "melodyOne" {  
-            \melodyOne 
-        }
-        \context Lyrics \lyricsto "melodyOne" {
-            \lyricsOne 
-        }
+\score { 
+    <<
+        \new Staff <<
+            %\mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+            \new Voice = "melodyOne" {  
+                \melodyOne 
+            }
+            \new Lyrics \lyricsto "melodyOne" {
+                \lyricsOne 
+            }
+        >>
     >>
     \layout {}
     % To create MIDI output, uncomment the following line:
-    %  \midi {\tempo 4 = 180 }
+    %  \midi {\tempo 4 = 180 }   
 }
