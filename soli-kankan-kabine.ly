@@ -73,7 +73,7 @@ lyricsOne = \lyricmode {
 
 % The score definition
 \score { 
-    <<
+    
         \new Staff <<
             %\mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
             \new Voice = "melodyOne" {  
@@ -83,8 +83,17 @@ lyricsOne = \lyricmode {
                 \lyricsOne 
             }
         >>
-    >>
+    
     \layout {}
     % To create MIDI output, uncomment the following line:
     %  \midi {\tempo 4 = 180 }   
+}
+
+\score {
+    \relative a'' {
+        \clef "treble" \time 12/8 \key g \major
+        a2. r4 c8 ~ c8  b8  a8 
+        fis4. r8 e8 d8  d8 d8 d8 c8 b4 \break
+        g'4. g8 r8 a8
+    }
 }
